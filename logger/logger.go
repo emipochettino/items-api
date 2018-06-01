@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/emipochettino/items-api/context"
+	"github.com/emipochettino/items-api-go/context"
 )
 
 const timeFormat = "2006-01-02T15:04:05.000"

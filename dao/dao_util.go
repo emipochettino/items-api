@@ -3,8 +3,8 @@ package dao
 import (
 	"fmt"
 
-	"github.com/emipochettino/items-api/entities"
-	"github.com/emipochettino/items-api/logger"
+	"github.com/emipochettino/items-api-go/entities"
+	"github.com/emipochettino/items-api-go/logger"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"

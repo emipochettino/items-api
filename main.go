@@ -1,9 +1,9 @@
 package main
 
 import (
-	_ "github.com/emipochettino/items-api/entities"
-	"github.com/emipochettino/items-api/handlers"
-	"github.com/emipochettino/items-api/middlewares"
+	_ "github.com/emipochettino/items-api-go/entities"
+	"github.com/emipochettino/items-api-go/handlers"
+	"github.com/emipochettino/items-api-go/middlewares"
 	"github.com/gin-gonic/gin"
 )
 

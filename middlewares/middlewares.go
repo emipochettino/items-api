@@ -3,7 +3,7 @@ package middlewares
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/satori/go.uuid"
-	"github.com/emipochettino/items-api/context"
+	"github.com/emipochettino/items-api-go/context"
 )
 
 const request = "request"

@@ -3,8 +3,8 @@ package dao
 import (
 	"fmt"
 
-	"github.com/emipochettino/items-api/entities"
-	"github.com/emipochettino/items-api/logger"
+	"github.com/emipochettino/items-api-go/entities"
+	"github.com/emipochettino/items-api-go/logger"
 )
 
 type ICategoryDao interface {

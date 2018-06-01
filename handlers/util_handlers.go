@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/emipochettino/items-api/logger"
-	"github.com/emipochettino/items-api/errors"
+	"github.com/emipochettino/items-api-go/logger"
+	"github.com/emipochettino/items-api-go/errors"
 )
 
 func PingHandler(c *gin.Context) {
