@@ -42,7 +42,7 @@ func CreateCategoryHandler(c *gin.Context) {
 
 func updateCategoryHandler(c *gin.Context) *errors.APIError {
 	var category *entities.Category
-	logger.Info("Creating category")
+	logger.Info("Updating category")
 
 	if err := c.BindJSON(&category); err != nil {
 
@@ -87,12 +87,16 @@ func getCategoryHandler(c *gin.Context) *errors.APIError {
 		return errors.NewBadRequest()
 	}
 
-	logger.Info(fmt.Sprintf("Getting category category with id: %d", id))
+	logger.Info(fmt.Sprintf("Getting category with id: %d", id))
 
 	result, err := dao.CategoryDAO.GetCategory(int(id))
 	if err != nil {
 		logger.Error("Error binding category request")
 		return errors.NewBadRequest()
+	}
+
+	if result == nil {
+		return errors.NewResourceNotFound("Category not found")
 	}
 
 	c.JSON(http.StatusCreated, result)
@@ -104,7 +108,7 @@ func GetCategoryHandler(c *gin.Context) {
 }
 
 func deleteCategoryHandler(c *gin.Context) *errors.APIError {
-	logger.Info("Creating category")
+	logger.Info("Deleting category")
 
 	id, err := strconv.ParseInt(c.Param("id"), 10, 64)
 

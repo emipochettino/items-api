@@ -12,9 +12,8 @@ const (
 )
 
 type APIError struct {
-	Status  int      `json:"status"`
-	Message string   `json:"message"`
-	Cause   []string `json:"cause"`
+	Status  int    `json:"status"`
+	Message string `json:"message"`
 }
 
 // Initializes an APIError.
@@ -22,7 +21,6 @@ func newAPIError(code int, message string) *APIError {
 	return &APIError{
 		Status:  code,
 		Message: message,
-		Cause:   make([]string, 0),
 	}
 }
 

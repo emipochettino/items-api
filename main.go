@@ -14,11 +14,19 @@ func main() {
 
 	router.GET("/ping", handlers.PingHandler)
 
+	//Resource Category
 	router.POST("/category", handlers.CreateCategoryHandler)
 	router.PUT("/category", handlers.UpdateCategoryHandler)
 	router.GET("/category/:id", handlers.GetCategoryHandler)
 	router.GET("/category", handlers.FindCategoryHandler)
 	router.DELETE("/category/:id", handlers.DeleteCategoryHandler)
+
+	//Resource User
+	router.POST("/user", handlers.CreateUserHandler)
+	router.PUT("/user", handlers.UpdateUserHandler)
+	router.GET("/user/:id", handlers.GetUserHandler)
+	router.GET("/user", handlers.FindUsersHandler)
+	router.DELETE("/user/:id", handlers.DeleteUserHandler)
 
 	router.NoMethod(handlers.NoMethodHandler)
 	router.NoRoute(handlers.NoRoutHandler)

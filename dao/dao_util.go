@@ -16,7 +16,10 @@ var (
 	DataBaseLocalMysql = "test"
 )
 
-var CategoryDAO CategoryDao
+var (
+	CategoryDAO CategoryDao
+	UserDAO     UserDao
+)
 
 func init() {
 	initializeDataBase()
@@ -45,9 +48,13 @@ func initializeDataBase() {
 	defer db.Close()
 
 	db.DropTableIfExists(&entities.Category{})
-	db.AutoMigrate(&entities.Category{})
+	db.AutoMigrate(
+		&entities.Category{},
+		&entities.User{},
+	)
 }
 
 func initializeDao() {
 	CategoryDAO = CategoryDao{}
+	UserDAO = UserDao{}
 }
