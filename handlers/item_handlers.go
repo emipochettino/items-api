@@ -10,6 +10,7 @@ import (
 	"github.com/emipochettino/items-api-go/errors"
 	"github.com/emipochettino/items-api-go/logger"
 	"github.com/gin-gonic/gin"
+	"github.com/emipochettino/items-api-go/provider"
 )
 
 func createItemHandler(c *gin.Context) *errors.APIError {
@@ -30,6 +31,8 @@ func createItemHandler(c *gin.Context) *errors.APIError {
 		c.JSON(http.StatusBadRequest, err)
 		return errors.NewBadRequest()
 	}
+
+	go provider.QProvider.NotifyItem(result)
 
 	c.JSON(http.StatusCreated, result)
 
@@ -57,6 +60,8 @@ func updateItemHandler(c *gin.Context) *errors.APIError {
 		logger.Error("Error binding item request")
 		return errors.NewBadRequest()
 	}
+
+	go provider.QProvider.NotifyItem(result)
 
 	c.JSON(http.StatusOK, result)
 	return nil

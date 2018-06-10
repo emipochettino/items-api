@@ -91,7 +91,7 @@ func (ItemDao) GetItem(id int) (*entities.Item, error) {
 	defer db.Close()
 
 	item := &entities.Item{}
-	if db.Model(item).Where(id).First(item).Related(&item.User).RecordNotFound() {
+	if db.Model(item).Preload("Categories").Preload("User").Where(id).Find(item).RecordNotFound() {
 		return nil, nil
 	}
 
