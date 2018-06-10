@@ -28,6 +28,13 @@ func main() {
 	router.GET("/user", handlers.FindUsersHandler)
 	router.DELETE("/user/:id", handlers.DeleteUserHandler)
 
+	//Resource Item
+	router.POST("/item", handlers.CreateItemHandler)
+	router.PUT("/item", handlers.UpdateItemHandler)
+	router.GET("/item/:id", handlers.GetItemHandler)
+	router.GET("/item", handlers.FindItemsHandler)
+	router.DELETE("/item/:id", handlers.DeleteItemHandler)
+
 	router.NoMethod(handlers.NoMethodHandler)
 	router.NoRoute(handlers.NoRoutHandler)
 	router.Run(":8080")

@@ -91,7 +91,7 @@ func (UserDao) GetUser(id int) (*entities.User, error) {
 	defer db.Close()
 
 	user := &entities.User{}
-	if db.Where(&entities.User{ID: id}).First(user).RecordNotFound() {
+	if db.Where(id).First(user).RecordNotFound() {
 		return nil, nil
 	}
 

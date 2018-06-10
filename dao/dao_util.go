@@ -19,6 +19,7 @@ var (
 var (
 	CategoryDAO CategoryDao
 	UserDAO     UserDao
+	ItemDAO     ItemDao
 )
 
 func init() {
@@ -47,14 +48,21 @@ func initializeDataBase() {
 	}
 	defer db.Close()
 
-	db.DropTableIfExists(&entities.Category{})
+	db.DropTableIfExists(
+		&entities.Category{},
+		&entities.User{},
+		&entities.Item{},
+		"item_category",
+	)
 	db.AutoMigrate(
 		&entities.Category{},
 		&entities.User{},
+		&entities.Item{},
 	)
 }
 
 func initializeDao() {
 	CategoryDAO = CategoryDao{}
 	UserDAO = UserDao{}
+	ItemDAO = ItemDao{}
 }
